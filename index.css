@@ -5,3 +5,22 @@
 body {
 	margin: 0;
 }
+
+button {
+	cursor: pointer;
+}
+
+body > main > section {
+	display: flex;
+	padding: 16px;
+
+	& > button {
+		background: accentColor;
+		border-radius: 16px;
+		border: none;
+		font-size: 1rem;
+		font-weight: bold;
+		inline-size: 100%;
+		padding: 16px;
+	}
+}
