@@ -6,7 +6,7 @@ navigator.permissions
 		function setGeolocationElement() {
 			navigator.geolocation.getCurrentPosition(
 				async (position) => {
-					document.querySelector(`section`).innerText = `Getting temperature…`;
+					document.querySelector(`section > article`).textContent = `Getting temperature…`;
 					const url = new URL(`https://api.open-meteo.com/v1/forecast`);
 					url.searchParams.set(`latitude`, position.coords.latitude.toString());
 					url.searchParams.set(`longitude`, position.coords.longitude.toString());
@@ -14,7 +14,7 @@ navigator.permissions
 					const response = await fetch(url);
 					if (response.ok) {
 						const weatherData = await response.json();
-						document.querySelector(`section`).innerText = `${weatherData.current.temperature_2m}${weatherData.current_units.temperature_2m}`;
+						document.querySelector(`section > article`).textContent = `${weatherData.current.temperature_2m}${weatherData.current_units.temperature_2m}`;
 					} else {
 						// TODO
 					}

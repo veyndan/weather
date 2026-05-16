@@ -2,6 +2,10 @@
 	color-scheme: dark light;
 }
 
+html {
+	font-family: system-ui;
+}
+
 body {
 	margin: 0;
 }
@@ -12,7 +16,27 @@ button {
 
 body > main > section {
 	display: flex;
+	flex-direction: column;
+	gap: 16px;
 	padding: 16px;
+
+	& > header {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		padding-inline: 12px;
+
+		& > h1 {
+			font-size: .875rem;
+			font-weight: normal;
+			line-height: 1;
+		}
+
+		& > svg {
+			fill: currentColor;
+			width: 16px;
+		}
+	}
 
 	& > button {
 		background: accentColor;
