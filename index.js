@@ -14,7 +14,7 @@ navigator.permissions
 					const response = await fetch(url);
 					if (response.ok) {
 						const weatherData = await response.json();
-						document.querySelector(`section > article`).textContent = `${weatherData.current.temperature_2m}${weatherData.current_units.temperature_2m}`;
+						document.querySelector(`section > article`).textContent = `${Math.round(weatherData.current.temperature_2m)}${weatherData.current_units.temperature_2m}`;
 					} else {
 						// TODO
 					}
