@@ -1,16 +1,20 @@
 "use strict";
 
 // noinspection ES6UnusedImports
-import LocationCardElement from "./location-card";
+import LocationCardElement from "./location-card.js";
 
 navigator.permissions
 	.query({name: `geolocation`})
 	.then((permissionStatus) => {
 		function setGeolocationElement() {
-			const locationCardElement = (/** @type {LocationCardElement} */ (document.createElement(`veyndan-location-card`)));
-			document.querySelector(`section`).append(locationCardElement);
 			navigator.geolocation.getCurrentPosition(
 				async (position) => {
+					const buttonElement = document.querySelector(`button`)
+					if (buttonElement !== null) {
+						buttonElement.remove();
+					}
+					const locationCardElement = (/** @type {LocationCardElement} */ (document.createElement(`veyndan-location-card`)));
+					document.querySelector(`section`).append(locationCardElement);
 					const url = new URL(`https://api.open-meteo.com/v1/forecast`);
 					url.searchParams.set(`latitude`, position.coords.latitude.toString());
 					url.searchParams.set(`longitude`, position.coords.longitude.toString());
@@ -54,7 +58,6 @@ navigator.permissions
 				buttonElement.textContent = `Update location permissions`;
 				document.querySelector(`section`).append(buttonElement)
 				buttonElement.addEventListener(`click`, event => {
-					(/** @type {HTMLButtonElement} */ (event.currentTarget)).remove();
 					setGeolocationElement();
 				});
 				break;
