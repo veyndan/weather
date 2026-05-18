@@ -10,19 +10,33 @@ stylesheet.replaceSync(`
 
 		> article {
 			align-items: center;
-			display: flex;
+			display: grid;
 			gap: 16px;
+			grid-template:
+				"city                     temperature " auto
+				"meteorological-condition temperature " auto /
+				 1fr                      auto        ;
 			justify-content: space-between;
 
 			> slot::slotted(*[slot="city"]),
 			> slot[name="city"] > * {
 				font-size: 1.5rem;
+				grid-area: city;
+				margin: 0;
+			}
+
+			> slot::slotted(*[slot="meteorological-condition"]),
+			> slot[name="meteorological-condition"] > * {
+				font-size: .875rem;
+				grid-area: meteorological-condition;
+				line-height: 1;
 				margin: 0;
 			}
 
 			> slot[name="temperature"] {
 				font-size: 3rem;
 				font-weight: 800;
+				grid-area: temperature;
 				line-height: 1;
 			}
 		}
