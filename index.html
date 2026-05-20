@@ -12,7 +12,10 @@
 	<template id="card-location">
 		<link rel="stylesheet" href="index.css"/>
 		<article>
-			<slot name="city"><h1>---</h1></slot>
+			<div class="place">
+				<slot name="city"><h1>---</h1></slot>
+				<slot name="country">---</slot>
+			</div>
 			<slot name="meteorological-condition">---</slot>
 			<slot name="temperature">--</slot>
 			<slot name="temperature-range">--</slot>

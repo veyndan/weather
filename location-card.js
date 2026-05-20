@@ -13,17 +13,29 @@ stylesheet.replaceSync(`
 			display: grid;
 			gap: 16px;
 			grid-template:
-				"city                     temperature       " auto
-				"city                     temperature       " auto
+				"place                    temperature       " auto
 				"meteorological-condition temperature-range " auto /
 				 1fr                      auto        ;
 			justify-content: space-between;
 
-			> slot::slotted(*[slot="city"]),
-			> slot[name="city"] > * {
-				font-size: 1.5rem;
-				grid-area: city;
-				margin: 0;
+			.place {
+				display: flex;
+				flex-direction: column;
+				gap: inherit;
+				grid-area: place;
+
+				> slot::slotted(*[slot="city"]),
+				> slot[name="city"] > * {
+					font-size: 1.5rem;
+					margin: 0;
+				}
+
+				> slot::slotted(*[slot="country"]),
+				> slot[name="country"] > * {
+					font-size: .875rem;
+					font-weight: 700;
+					line-height: 1;
+				}
 			}
 
 			> slot::slotted(*[slot="meteorological-condition"]),

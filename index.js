@@ -28,7 +28,10 @@ navigator.permissions
 						const cityElement = document.createElement(`h1`);
 						cityElement.slot = `city`;
 						cityElement.textContent = locationData[`features`][0][`properties`][`city`];
-						locationCardElement.append(cityElement);
+						const countryElement = document.createElement(`span`);
+						countryElement.slot = `country`;
+						countryElement.textContent = locationData[`features`][0][`properties`][`country`];
+						locationCardElement.append(cityElement, countryElement);
 					} else {
 						// TODO
 					}
