@@ -18,7 +18,9 @@ navigator.permissions
 					const url = new URL(`https://api.open-meteo.com/v1/forecast`);
 					url.searchParams.set(`latitude`, position.coords.latitude.toString());
 					url.searchParams.set(`longitude`, position.coords.longitude.toString());
+					url.searchParams.append(`timezone`, `auto`);
 					url.searchParams.append(`current`, `temperature_2m,weather_code`);
+					url.searchParams.append(`daily`, `temperature_2m_min,temperature_2m_max`);
 					console.log(url);
 					const locationResponse = await fetch(`https://photon.komoot.io/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}`);
 					if (locationResponse.ok) {
@@ -71,7 +73,10 @@ navigator.permissions
 						const temperatureElement = document.createElement(`span`);
 						temperatureElement.slot = `temperature`;
 						temperatureElement.textContent = `${Math.round(weatherData.current.temperature_2m)}°`;
-						locationCardElement.append(meteorologicalConditionElement, temperatureElement)
+						const temperatureRangeElement = document.createElement(`span`);
+						temperatureRangeElement.slot = `temperature-range`;
+						temperatureRangeElement.textContent = `High ${Math.round(weatherData.daily.temperature_2m_max[0])}° · Low ${Math.round(weatherData.daily.temperature_2m_min[0])}°`;
+						locationCardElement.append(meteorologicalConditionElement, temperatureElement, temperatureRangeElement);
 					} else {
 						// TODO
 					}

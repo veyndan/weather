@@ -13,8 +13,9 @@ stylesheet.replaceSync(`
 			display: grid;
 			gap: 16px;
 			grid-template:
-				"city                     temperature " auto
-				"meteorological-condition temperature " auto /
+				"city                     temperature       " auto
+				"city                     temperature       " auto
+				"meteorological-condition temperature-range " auto /
 				 1fr                      auto        ;
 			justify-content: space-between;
 
@@ -38,6 +39,15 @@ stylesheet.replaceSync(`
 				font-weight: 800;
 				grid-area: temperature;
 				line-height: 1;
+				text-align: end;
+			}
+
+			> slot::slotted(*[slot="temperature-range"]),
+			> slot[name="temperature-range"] {
+				font-size: .875rem;
+				grid-area: temperature-range;
+				line-height: 1;
+				text-align: end;
 			}
 		}
 	}
