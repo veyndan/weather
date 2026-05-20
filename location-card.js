@@ -31,7 +31,6 @@ stylesheet.replaceSync(`
 				font-size: .875rem;
 				grid-area: meteorological-condition;
 				line-height: 1;
-				margin: 0;
 			}
 
 			> slot[name="temperature"] {
