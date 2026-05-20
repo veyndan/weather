@@ -23,11 +23,14 @@ stylesheet.replaceSync(`
 				flex-direction: column;
 				gap: inherit;
 				grid-area: place;
+				overflow: hidden;
 
 				> slot::slotted(*[slot="city"]),
 				> slot[name="city"] > * {
 					font-size: 1.5rem;
 					margin: 0;
+					overflow: hidden;
+					text-overflow: ellipsis;
 				}
 
 				> slot::slotted(*[slot="country"]),
@@ -35,6 +38,8 @@ stylesheet.replaceSync(`
 					font-size: .875rem;
 					font-weight: 700;
 					line-height: 1;
+					overflow: hidden;
+					text-overflow: ellipsis;
 				}
 			}
 
