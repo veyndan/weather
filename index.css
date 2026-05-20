@@ -14,37 +14,49 @@ button {
 	cursor: pointer;
 }
 
-body > main > section {
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	padding: 16px;
-
+body {
 	> header {
 		align-items: center;
 		display: flex;
-		justify-content: space-between;
-		padding-inline: 12px;
-
-		> h1 {
-			font-size: .875rem;
-			font-weight: normal;
-			line-height: 1;
-		}
-
-		> svg {
-			fill: currentColor;
-			width: 16px;
-		}
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		padding-block: 16px;
+		padding-inline: 24px;
 	}
 
-	> button {
-		background: accentColor;
-		border-radius: 16px;
-		border: none;
-		font-size: 1rem;
-		font-weight: bold;
-		inline-size: 100%;
+	> main > section {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
 		padding: 16px;
+
+		> header {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			padding-inline: 12px;
+
+			> h1 {
+				font-size: .875rem;
+				font-weight: normal;
+				line-height: 1;
+			}
+
+			> svg {
+				fill: currentColor;
+				width: 16px;
+			}
+		}
+
+		> button {
+			background: accentColor;
+			border-radius: 16px;
+			border: none;
+			font-size: 1rem;
+			font-weight: bold;
+			inline-size: 100%;
+			padding: 16px;
+		}
 	}
 }
