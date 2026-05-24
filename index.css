@@ -25,38 +25,73 @@ body {
 		padding-inline: 24px;
 	}
 
-	> main > section {
+	> main {
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
 		padding: 16px;
 
-		> header {
+		> search {
 			align-items: center;
+			background: rgb(from currentColor r g b / .1);
+			border-radius: 32px;
 			display: flex;
-			justify-content: space-between;
-			padding-inline: 12px;
+			flex-direction: row-reverse;
+			gap: 12px;
+			padding-inline: 16px;
 
-			> h1 {
-				font-size: .875rem;
-				font-weight: normal;
+			> * {
+				padding-block: 12px;
+			}
+
+			> input {
+				background: transparent;
+				border: none;
+				color: inherit;
+				flex: 1;
+				font-size: .75rem;
+				font-weight: 300;
 				line-height: 1;
 			}
 
 			> svg {
 				fill: currentColor;
-				width: 16px;
+				width: .75rem;
 			}
 		}
 
-		> button {
-			background: accentColor;
-			border-radius: 16px;
-			border: none;
-			font-size: 1rem;
-			font-weight: bold;
-			inline-size: 100%;
-			padding: 16px;
+		> section {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			> header {
+				align-items: center;
+				display: flex;
+				justify-content: space-between;
+				padding-inline: 12px;
+
+				> h1 {
+					font-size: .875rem;
+					font-weight: normal;
+					line-height: 1;
+				}
+
+				> svg {
+					fill: currentColor;
+					width: 16px;
+				}
+			}
+
+			> button {
+				background: accentColor;
+				border-radius: 16px;
+				border: none;
+				font-size: 1rem;
+				font-weight: bold;
+				inline-size: 100%;
+				padding: 16px;
+			}
 		}
 	}
 }
