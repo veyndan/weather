@@ -67,6 +67,10 @@ stylesheet.replaceSync(`
 			}
 		}
 	}
+
+	:host([data-meteorological-code="0"]) {
+		background: linear-gradient(to bottom, hsl(199 100% 77% / .4), hsl(93 100% 98% / .4));
+	}
 `);
 
 export default class LocationCardElement extends HTMLElement {

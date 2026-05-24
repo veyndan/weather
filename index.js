@@ -38,6 +38,7 @@ navigator.permissions
 					const response = await fetch(url);
 					if (response.ok) {
 						const weatherData = await response.json();
+						locationCardElement.dataset.meteorologicalCode = weatherData.current.weather_code;
 						const meteorologicalConditionElement = document.createElement(`span`);
 						meteorologicalConditionElement.slot = `meteorological-condition`;
 						const wmoMeteorologicalCodeToDescription = new Map(
