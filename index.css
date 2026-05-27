@@ -4,6 +4,7 @@
 
 html {
 	font-family: system-ui;
+	height: -webkit-fill-available;
 }
 
 body {
@@ -14,10 +15,16 @@ button {
 	cursor: pointer;
 }
 
+[data-meteorological-code="0"] {
+	background: linear-gradient(to bottom, hsl(199 100% 77% / .4), hsl(93 100% 98% / .4));
+}
+
 body {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
+	display: grid;
+	gap: 16px;
+	grid: repeat(3, auto) 1fr / auto 1fr;
+	height: -webkit-fill-available;
+	padding: 16px;
 
 	> header {
 		align-items: center;
@@ -25,16 +32,12 @@ body {
 		font-size: 2rem;
 		font-weight: 700;
 		line-height: 1;
-		padding-block: 16px;
-		padding-inline: 24px;
+		padding-block: 0 16px;
+		padding-inline: 8px 16px;
 	}
 
 	> main {
-		display: flex;
-		flex-direction: column;
-		flex: 1;
-		gap: 16px;
-		padding: 16px;
+		display: contents;
 
 		> search {
 			align-items: center;
@@ -119,6 +122,20 @@ body {
 				inline-size: 100%;
 				padding: 16px;
 			}
+		}
+
+		> article {
+			border-radius: 16px;
+			grid-column: 2;
+			grid-row: 1 / -1;
+		}
+	}
+
+	@media (width < 48rem) {
+		grid-template-columns: auto;
+
+		> main > article {
+			display: none;
 		}
 	}
 }
