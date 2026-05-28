@@ -20,121 +20,138 @@ button {
 }
 
 body {
-	display: grid;
-	gap: 16px;
-	grid: repeat(3, auto) 1fr / auto 1fr;
+	display: flex;
 	height: -webkit-fill-available;
-	padding: 16px;
+	padding-inline: 8px;
 
-	> header {
-		align-items: center;
+	> .pane {
 		display: flex;
-		font-size: 2rem;
-		font-weight: 700;
-		line-height: 1;
-		padding-block: 0 16px;
-		padding-inline: 8px 16px;
-	}
+		flex-direction: column;
+		gap: 16px;
+		overflow-block: auto;
+		padding-block: 16px;
+		padding-inline: 8px;
 
-	> main {
-		display: contents;
-
-		> search {
+		> header {
 			align-items: center;
-			background: rgb(from currentColor r g b / .1);
-			border-radius: 32px;
 			display: flex;
-			flex-direction: row-reverse;
-			gap: 12px;
-			padding-inline: 16px;
-
-			> * {
-				padding-block: 12px;
-			}
-
-			> input {
-				background: transparent;
-				border: none;
-				color: inherit;
-				flex: 1;
-				font-size: .75rem;
-				font-weight: 300;
-				line-height: 1;
-			}
-
-			> svg {
-				fill: currentColor;
-				width: .75rem;
-			}
+			font-size: 2rem;
+			font-weight: 700;
+			line-height: 1;
+			padding-block: 0 16px;
+			padding-inline: 8px 16px;
 		}
 
-		> section {
-			display: flex;
-			flex-direction: column;
-			gap: 16px;
+		> aside {
+			display: contents;
 
-			&.saved-locations {
-				flex: 1;
+			> search {
+				align-items: center;
+				background: rgb(from currentColor r g b / .1);
+				border-radius: 32px;
+				display: flex;
+				flex-direction: row-reverse;
+				gap: 12px;
+				padding-inline: 16px;
 
-				> div {
-					align-items: center;
-					display: flex;
-					flex-direction: column-reverse;
+				> * {
+					padding-block: 12px;
+				}
+
+				> input {
+					background: transparent;
+					border: none;
+					color: inherit;
 					flex: 1;
 					font-size: .75rem;
-					font-weight: normal;
-					gap: 16px;
-					justify-content: center;
-					line-height: 1;
-					max-block-size: 32rem;
-
-					> svg {
-						fill: currentColor;
-						inline-size: 3rem;
-					}
-				}
-			}
-
-			> header {
-				align-items: center;
-				display: flex;
-				justify-content: space-between;
-				padding-inline: 12px;
-
-				> h1 {
-					font-size: .875rem;
-					font-weight: normal;
+					font-weight: 300;
 					line-height: 1;
 				}
 
 				> svg {
 					fill: currentColor;
-					width: 16px;
+					width: .75rem;
 				}
 			}
 
-			> button {
-				background: accentColor;
-				border-radius: 16px;
-				border: none;
-				font-size: 1rem;
-				font-weight: bold;
-				inline-size: 100%;
-				padding: 16px;
-			}
-		}
+			> section {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
 
-		> article {
-			border-radius: 16px;
-			grid-column: 2;
-			grid-row: 1 / -1;
+				&.saved-locations {
+					flex: 1;
+
+					> div {
+						align-items: center;
+						display: flex;
+						flex-direction: column-reverse;
+						flex: 1;
+						font-size: .75rem;
+						font-weight: normal;
+						gap: 16px;
+						justify-content: center;
+						line-height: 1;
+						max-block-size: 32rem;
+
+						> svg {
+							fill: currentColor;
+							inline-size: 3rem;
+						}
+					}
+				}
+
+				> header {
+					align-items: center;
+					display: flex;
+					justify-content: space-between;
+					padding-inline: 12px;
+
+					> h1 {
+						font-size: .875rem;
+						font-weight: normal;
+						line-height: 1;
+					}
+
+					> svg {
+						fill: currentColor;
+						width: 16px;
+					}
+				}
+
+				> button {
+					background: accentColor;
+					border-radius: 16px;
+					border: none;
+					font-size: 1rem;
+					font-weight: bold;
+					inline-size: 100%;
+					padding: 16px;
+				}
+			}
 		}
 	}
 
-	@media (width < 48rem) {
-		grid-template-columns: auto;
+	> main {
+		block-size: -webkit-fill-available;
+		border-radius: 16px;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		margin-block: 16px;
+		margin-inline: 8px;
+		overflow-block: auto;
+	}
 
-		> main > article {
+	@media (width < 48rem) {
+		padding-inline: 0;
+
+		> .pane {
+			flex: 1;
+			padding-inline: 16px;
+		}
+
+		> main {
 			display: none;
 		}
 	}

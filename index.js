@@ -81,7 +81,7 @@ navigator.permissions
 						temperatureRangeElement.slot = `temperature-range`;
 						temperatureRangeElement.textContent = `High ${Math.round(weatherData.daily.temperature_2m_max[0])}° · Low ${Math.round(weatherData.daily.temperature_2m_min[0])}°`;
 						locationCardElement.append(meteorologicalConditionElement, temperatureElement, temperatureRangeElement);
-						document.querySelector(`article`).dataset.meteorologicalCode = weatherData.current.weather_code;
+						document.querySelector(`main`).dataset.meteorologicalCode = weatherData.current.weather_code;
 					} else {
 						// TODO
 					}
